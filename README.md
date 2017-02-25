@@ -1,2 +1,2 @@
-# misc_utils
+# misc-utils
 Miscellaneous assorted scripts I have made
