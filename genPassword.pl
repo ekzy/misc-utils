@@ -15,7 +15,7 @@ our $cfg = {
 	word_regex => qr/(\w{6,8})/i,
 	caps => 1 ,
 	misspelled => 1,
-       	digits => 1,
+  digits => 1,
 	digits_len => 2,
 	num_digits => 1,
 	chars => 1,
@@ -54,7 +54,7 @@ sub generate_password {
 		$line =  $words[$line];
 		$len = length $line;
 		$j = int(rand($len));
-		$snip = substr $line, $j, int(rand($len - $j));	
+		$snip = substr $line, $j, int(rand($len - $j));
 		$capped = $snip;
 	        $capped =~ tr/a-zA-Z/A-Za-z/;
 		$line = join ($capped, split($snip,$line));
@@ -82,6 +82,3 @@ my $num_password = ($ARGV[0] or 1);
 for(my $i = 0; $i < $num_password; $i++){
 	generate_password();
 }
-
-
-
