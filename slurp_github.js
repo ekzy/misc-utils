@@ -22,7 +22,11 @@ function puts(error, stdout, stderr) { console.log(error);console.log(stderr);co
 const tokenfile = process.env.HOME+'/.secrets/slurp_key'; //
 
 function slurp_repos(parsed){
+  //TODO: need to get new repos only
+  //Requires making a list of the ones it downloaded from ls
+
   for(var i in parsed){
+
     var sshUrl = parsed[i]['ssh_url'];
     exec("git clone "+sshUrl, puts);
   }
