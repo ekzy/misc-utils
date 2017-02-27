@@ -26,13 +26,12 @@ function slurp_repos(parsed){
   //TODO: need to get new repos only
   //Requires making a list of the ones it downloaded from ls
   var repos = fs.readdirSync(github_home);
-  console.log(repos);
   for(var i in parsed){
     var name = parsed[i]['name'];
 
     if(repos.includes(name)){
 
-      console.log('Repository "${name}" Already Downloaded');
+      console.log('Repository "'+name+'" Already Downloaded');
       continue;
     }
     var sshUrl = parsed[i]['ssh_url'];
