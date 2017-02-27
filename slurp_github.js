@@ -28,10 +28,15 @@ function slurp_repos(parsed){
   var repos = fs.readdirSync(github_home);
   console.log(repos);
   for(var i in parsed){
+    var name = parsed[i]['name'];
 
+    if(repos.includes(name)){
+
+      console.log('Repository "${name}" Already Downloaded');
+      continue;
+    }
     var sshUrl = parsed[i]['ssh_url'];
-    console.log(parsed[i]);
-    //exec("git clone "+sshUrl, puts);
+    exec("git clone "+sshUrl, puts);
   }
 }
 
