@@ -19,14 +19,21 @@ var options = {
 
 function puts(error, stdout, stderr) { console.log(error);console.log(stderr);console.log(stdout) }
 
+const github_home = process.env.HOME+'/Projects/Development/github/'; //Or where ever you put github
 const tokenfile = process.env.HOME+'/.secrets/slurp_key'; //
 
 function slurp_repos(parsed){
   //TODO: need to get new repos only
   //Requires making a list of the ones it downloaded from ls
-
+  var repos = fs.readdirSync(github_home);
   for(var i in parsed){
+    var name = parsed[i]['name'];
 
+    if(repos.includes(name)){
+
+      console.log('Repository "'+name+'" Already Downloaded');
+      continue;
+    }
     var sshUrl = parsed[i]['ssh_url'];
     exec("git clone "+sshUrl, puts);
   }
