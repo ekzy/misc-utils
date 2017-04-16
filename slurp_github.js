@@ -19,7 +19,7 @@ var options = {
 
 function puts(error, stdout, stderr) { console.log(error);console.log(stderr);console.log(stdout) }
 
-const github_home = process.env.HOME+'/Projects/Development/github/'; //Or where ever you put github
+const github_home = process.env.HOME+'/prj/dev/pkg/'; //Or where ever you put github
 const tokenfile = process.env.HOME+'/.secrets/slurp_key'; //
 
 function slurp_repos(parsed){
